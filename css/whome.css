@@ -1,0 +1,26 @@
+.body{
+  text-align: center;
+    background-color: white;
+    color: black;
+}
+.title {
+    font-size: 30px;
+}
+.logoimg {
+    max-width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 0; /* إزالة الهامش لأن الترتيب سيتم عبر flex */
+}.header{
+      display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #f7f7f7;
+  flex-direction: row; /* تأكيد الترتيب الأفقي */
+}.link{
+    display: flex;
+  gap: 20px;
+  align-items: center; /* محاذاة رأسية للأزرار */
+  /* يمكن إضافة margin-left إذا أردت إبعاد الأزرار عن الشعار */
+}

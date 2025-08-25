@@ -1,0 +1,130 @@
+body{
+    text-align: center;
+    background-color: white;
+    color: black;
+}.logoimg{
+    max-width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+
+}header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}.title{
+    font-size: 20px;
+}.link{
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: auto;
+    
+    margin: 20px 0;
+}.bb1{
+       background: rgba(255, 255, 255, 0.2); /* لون شفاف */
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    backdrop-filter: blur(8px); /* تأثير الزجاج */
+    border: 1px solid rgba(255,255,255,0.3); /* حدود خفيفة */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}.pro1{
+    max-width: 300px;
+    height: 300px;
+    margin: 10px;
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 10px;
+}.produit{
+     border: 3px solid black;
+     border-radius: 10px;
+     background-color: slategrey;
+     display: inline-block;
+}.buy-button{
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    ;
+    border-radius: 5px;
+}
+/* أضف في نهاية ملف CSS */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px #333;
+}
+.popup-content button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}.whatsapp-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 10px;
+}.foo1 {
+  display: block;
+  padding: 8px 20px;
+  color: #000000;
+  
+  border-radius: 2px;
+  margin-left: 250px;
+}.logotakomba {
+display: flex;
+align-items: center;
+justify-content: unset;
+flex-wrap: wrap;
+gap: 10px;
+width: 80px;
+height: 80px;
+/* صفحة من نحن */
+}.devimg {
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid black;
+    margin-right: 0; 
+    border-radius: 50px;
+}.str {
+    border: 1px solid black;
+    margin: 20px 0;
+    border: 3px solid black;
+}.back {
+    display: inline-block;
+    padding: 10px 15px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}.fen{
+    border: 3px solid rgb(187, 187, 187);
+     border-radius: 10px;
+     background-color: rgb(0, 0, 0);
+     display: inline-block;
+     margin-top: 20px;
+     padding: 10px;
+}.fen, .cl {
+    color: white;
+}
