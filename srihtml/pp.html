@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>store</title>
+    <link rel="stylesheet" href="/css/pp.css">
+    <script src="/js/main.js"></script>
+    <style>
+        .order-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 24px 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .form-group {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+        .city-warning {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-radius: 10px;
+            padding: 18px 12px;
+            margin: 18px auto;
+            max-width: 350px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            color: #856404;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        .city-warning img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+        }
+        .whatsapp-float {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 999;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .whatsapp-float:hover {
+            background: #128c7e;
+        }
+        .whatsapp-float img {
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+</head>
+
+<div id="popup" class="popup-overlay" style="display:none;">
+  <div class="popup-content">
+    <h2>تنبيه</h2>
+    <p>هاته الصفحة قيد التطوير، نعتذر عن أي خطأ. لمزيد من المعلومات راسلنا على واتساب!</p>
+    <button onclick="closePopup()">إغلاق</button><a class="whatsapp-link" href="https://wa.me/212708845887?text=مرحبا لدي استفسار"  target="_blank">واتساب</a>
+  </div>
+</div>
+<body>
+     <header>
+         <h1 class="title">VEEPHONE</h1> <img class="logoimg" src="/photo/icon/veeplogo (1).png" alt="VEEPHONE Logo">
+         
+         <nav>
+            <a href="#" class="link"><img src="/photo/icon/home-icon-silhouette (1).png" style="width: 20px; height: 20px;" alt="Home" title="الصفحة الرئيسية"></a>
+            <a href="/html/whome/whome.html" class="link"><img src="/photo/icon/about (1).png" style="width: 20px; height: 20px;" alt="About" title="من نحن"></a>
+            <a href="/html/contackt/contackt.html" class="link"><img src="/photo/icon/contact.png" style="width: 20px; height: 20px;" alt="Contact" title="اتصل بنا"></a>
+         </nav>
+         
+     </header>
+     <hr class="kht">
+     <main>
+        <h2> VEEPHONE طلب منتوج </h2>
+        <div id="city-warning" class="city-warning" style="display:none;">
+            <img src="/photo/icon/تنزيل (2).jpg" alt="تحذير">
+            <span>بسبب الطلب الهائل و عدم جدية بعضها عليك دفع تسبيق قبل تاكيد الطلب</span>
+            <button type="button" class="submit-btn" style="margin-top:12px;width:auto;" onclick="location.href='pp2.html'">سبب طلب التسبيق؟</button>
+        </div>
+        <form action="#" method="POST" class="order-form" id="orderForm">
+            <div class="form-group">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+          
+            <div class="form-group">
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+           
+            </div>
+            <div class="form-group">
+                <label for="quantity">الكمية:</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="address">عنوان الشحن (المدينة):</label>
+                <select id="address" name="address" required>
+                    <option value="">-- اختر المدينة --</option>
+                    <option value="الدار البيضاء">الدار البيضاء</option>
+                    <option value="الرباط">الرباط</option>
+                    <option value="فاس">فاس</option>
+                    <option value="مراكش">مراكش</option>
+                    <option value="طنجة">طنجة</option>
+                    <option value="أكادير">أكادير</option>
+                    <option value="مكناس">مكناس</option>
+                    <option value="وجدة">وجدة</option>
+                    <option value="القنيطرة">القنيطرة</option>
+                    <option value="تطوان">تطوان</option>
+                    <option value="آسفي">آسفي</option>
+                    <option value="خريبكة">خريبكة</option>
+                    <option value="الجديدة">الجديدة</option>
+                    <option value="بني ملال">بني ملال</option>
+                    <option value="القصر الكبير">القصر الكبير</option>
+                    <option value="المحمدية">المحمدية</option>
+                    <option value="الناظور">الناظور</option>
+                    <option value="تازة">تازة</option>
+                    <option value="سطات">سطات</option>
+                    <option value="سلا">سلا</option>
+                    <option value="صفرو">صفرو</option>
+                    <option value="بركان">بركان</option>
+                    <option value="العرائش">العرائش</option>
+                    <option value="كلميم">كلميم</option>
+                    <option value="الصويرة">الصويرة</option>
+                    <option value="تارودانت">تارودانت</option>
+                    <option value="الحسيمة">الحسيمة</option>
+                    <option value="زاكورة">زاكورة</option>
+                    <option value="ورزازات">ورزازات</option>
+                    <option value="الرشيدية">الرشيدية</option>
+                    <option value="شفشاون">شفشاون</option>
+                    <option value="سيدي قاسم">سيدي قاسم</option>
+                    <option value="سيدي سليمان">سيدي سليمان</option>
+                    <option value="تاونات">تاونات</option>
+                    <option value="الفقيه بن صالح">الفقيه بن صالح</option>
+                    <option value="جرسيف">جرسيف</option>
+                    <option value="خنيفرة">خنيفرة</option>
+                    <option value="ميدلت">ميدلت</option>
+                    <option value="أزيلال">أزيلال</option>
+                    <option value="تاوريرت">تاوريرت</option>
+                    <option value="الدريوش">الدريوش</option>
+                    <option value="سيدي إفني">سيدي إفني</option>
+                    <option value="بوجدور">بوجدور</option>
+                    <option value="الداخلة">الداخلة</option>
+                    <option value="السمارة">السمارة</option>
+                    <option value="طاطا">طاطا</option>
+                    <option value="طانطان">طانطان</option>
+                    <option value="أسا الزاك">أسا الزاك</option>
+                    <option value="مولاى يعقوب">مولاى يعقوب</option>
+                    <option value="وزان">وزان</option>
+                    <option value="إفران">إفران</option>
+                    <option value="بولمان">بولمان</option>
+                    <option value="تاونات">تاونات</option>
+                    <option value="جرادة">جرادة</option>
+                    <option value="فجيج">فجيج</option>
+                    <option value="تنغير">تنغير</option>
+                    <option value="سيدي بنور">سيدي بنور</option>
+                    <option value="اليوسفية">اليوسفية</option>
+                    <option value="شيشاوة">شيشاوة</option>
+                    <option value="الحاجب">الحاجب</option>
+                    <option value="مراكش">مراكش</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address-details">تفاصيل إضافية (اختياري):</label>
+                <textarea id="address-details" name="address-details" rows="2"></textarea>
+            </div>
+            <button type="button" class="submit-btn" id="sendOrderBtn">إرسال الطلب</button>
+        </form>
+        
+     </main>
+     <footer>
+        <hr>
+<footer>
+        <hr class="str">
+        <p>جميع الحقوق محفوظة &copy; 2023</p>
+        <h2>BY TAKOMBA</h2>
+    </footer>
+    <a href="https://wa.me/212708845887?text=مرحبا لدي استفسار" class="whatsapp-float" target="_blank" title="تواصل واتساب">
+        <img src="/photo/icon/contact.png" alt="واتساب">
+    </a>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var addressSelect = document.getElementById('address');
+        var cityWarning = document.getElementById('city-warning');
+        addressSelect.addEventListener('change', function() {
+            if (addressSelect.value) {
+                cityWarning.style.display = 'flex';
+            } else {
+                cityWarning.style.display = 'none';
+            }
+        });
+
+        // إرسال الطلب عبر واتساب
+        document.getElementById('sendOrderBtn').onclick = function() {
+            var name = document.getElementById('name').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var quantity = document.getElementById('quantity').value.trim();
+            var city = document.getElementById('address').value;
+            var details = document.getElementById('address-details').value.trim();
+
+            if (!name || !phone || !quantity || !city) {
+                alert('يرجى ملء جميع الحقول المطلوبة.');
+                return;
+            }
+
+            var msg = "طلب جديد:\n";
+            msg += "الاسم: " + name + "\n";
+            msg += "رقم الهاتف: " + phone + "\n";
+            msg += "الكمية: " + quantity + "\n";
+            msg += "المدينة: " + city + "\n";
+            if (details) msg += "تفاصيل إضافية: " + details + "\n";
+
+            var waUrl = "https://wa.me/212708845887?text=" + encodeURIComponent(msg);
+            window.open(waUrl, "_blank");
+        };
+    });
+</script>
+</body>
+
+</html>
+
+
+
+
+
